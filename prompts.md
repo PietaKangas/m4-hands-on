@@ -40,3 +40,46 @@ diff."
 
 #### How much do you think should be given to the AI, in terms of stack trace? What is the consequence of pasting the full stack trace? Or just one/two lines?
 - it depends on the task. I should give to AI at least the relevant lines of the error (in this case, a single line was enough). But in some cases (more complex ones) providing the full stack trace may be necessary becuse it can help find the exact location of the error.
+
+
+# Session 2
+
+## Part A
+#### prompt:
+The whole PriceEngine.java file +
+"Rank the methods in this file by refactoring priority.
+For each, give:
+(a) current cyclomatic complexity estimate,
+(b) the single refactor move you would apply first
+(extract-method, flatten-guard-clauses, replace-loop-
+with-pipeline, or rename),
+(c) one sentence on the expected complexity reduction.
+Do not propose code yet."
+
+#### answer:
+I’m reviewing the method structure and will rank the refactoring opportunities by likely impact before suggesting the first move for each.
+
+Refactoring priority
+This file has only one real method, quote, so the ranking is effectively a single-item list.
+
+quote
+(a) Current cyclomatic complexity estimate: about 15–17
+(b) First refactor move: extract-method
+(c) Expected complexity reduction: Splitting the method into smaller, named steps for subtotal, surcharge, promo logic, loyalty logic, and tax will collapse the main method into a simple orchestration flow and reduce branching pressure dramatically.
+The main reason this is the top priority is that the method mixes domain calculations, guard clauses, and multiple conditional discount/tax rules in one long block, which makes it harder to read, test, and modify safely.
+
+## Part B
+#### Prompt
+"Extract the loyalty-tier discount block into a private
+helper method ‘applyLoyaltyDiscount(...)‘. Do NOT change public method signatures. Show the diff."
+
+#### notes
+- After extracting the return value type is still Money 
+- Parameters type changes, customer.loyaltyYears()is now passed to the new method as an int years. 
+- Missing final modifiers, but in the original quote method doesnt have final modifiers either, so it is ok
+- "return running;" added to the extracted method, no early returns added
+
+- all tests pass
+
+
+
