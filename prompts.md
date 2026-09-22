@@ -33,3 +33,10 @@ diff."
 - AI fixed the line 57 in the file PriceEngine.java: 
     if (years > 5) -> if (years >= 5)
 - After that, all the tests pass, and no other test regressed
+
+## Part C
+#### Which of the AI’s replies (explain, patch) was the most useful? Which was the least useful?
+- I think the explain answer was more usefull, because AI explained the error clearly and also potential root causes. Patch is less useful for this task, because we wanted to identify the error and its root cause first and not fix it immediately.
+
+#### How much do you think should be given to the AI, in terms of stack trace? What is the consequence of pasting the full stack trace? Or just one/two lines?
+- it depends on the task. I should give to AI at least the relevant lines of the error (in this case, a single line was enough). But in some cases (more complex ones) providing the full stack trace may be necessary becuse it can help find the exact location of the error.
