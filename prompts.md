@@ -81,5 +81,10 @@ helper method ‘applyLoyaltyDiscount(...)‘. Do NOT change public method signa
 
 - all tests pass
 
+## Part D
+#### By how much did the cyclomatic complexity drop?
+- the cyclomatic complexity of the quote method dropped by 4
 
+#### List one refactor the AI proposed but you rejected. Explain why.
+- I didnt reject any of the Ai's suggestions because the Ai's responses were concise and focused on what was requested in the prompt. I saw no reason for rejection.
 
